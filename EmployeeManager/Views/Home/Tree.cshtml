@@ -16,14 +16,14 @@
 
     @foreach (var j in i)
     {
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+        <span>&nbsp;|</span>
 
         foreach (var k in j)
         {
-            <a asp-action="Index" asp-route-id="@k.GetId()" class="btn btn-primary">@k.GetName()</a>
+            <a asp-action="Index" asp-route-id="@k.GetId()" class="btn btn-primary">@k.GetName()</a> <span>:- @k.GetPosition() -:]</span>
         }
 
-        <span>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>|&nbsp;</span>
     }
 
     <hr />
