@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace EmployeeManager
 {
-    //Used to Add services and Middleware to host server I used MVC (useMvc) and Bootstrap(UseStaticFiles) Sevices only
+    //Used to Add Services and Middleware to host server I used MVC (useMvc) and Bootstrap(UseStaticFiles) Sevices only
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
