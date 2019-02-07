@@ -1,0 +1,31 @@
+﻿@model List<List<List<Employee>>>
+
+
+
+@{
+    ViewData["Title"] = "Tree";
+}
+
+<div class="text-center">[ Tree ]</div>
+<br />
+
+@foreach (var i in Model)
+{
+    
+<div class="text-center">
+
+    @foreach (var j in i)
+    {
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+
+        foreach (var k in j)
+        {
+            <a asp-action="Index" asp-route-id="@k.GetId()" class="btn btn-primary">@k.GetName()</a>
+        }
+
+        <span>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    }
+
+    <hr />
+</div>
+}

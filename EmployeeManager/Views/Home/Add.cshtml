@@ -1,0 +1,29 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add</h1>
+
+<form asp-action="Add">
+    <div class="form-group" style="display: none">
+        <label class="control-label">Id</label>
+        <input name="superiorId" value="@Model.GetId()" class="form-control col-md-4" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Name</label>
+        <input name="name" class="form-control col-md-4" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Position</label>
+        <input name="position" class="form-control col-md-4" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Salary</label>
+        <input name="salary" class="form-control col-md-4" />
+    </div>
+    <div class="form-group">
+        <input type="submit" name="Save" value="Add" class="btn btn-primary" />
+    </div>
+</form>

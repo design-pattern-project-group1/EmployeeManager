@@ -1,0 +1,77 @@
+﻿@model List<Employee>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+@ViewBag.header
+
+
+
+@if (ViewBag.header != "Home - Full List")
+{
+    <span>
+        [:-
+        <a asp-action="Add" asp-route-id="@ViewBag.parentId">
+            Add Subordinate
+        </a>
+        -:]
+    </span>
+}
+
+
+
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Position
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+                Control Span
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.GetId()
+                </td>
+                <td>
+                    @item.GetName()
+                </td>
+                <td>
+                    @item.GetPosition()
+                </td>
+                <td>
+                    @item.GetSalary()
+                </td>
+                <td>
+                    @item.GetControlSpan()
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.GetId()"> Show Subordinates </a>|
+                    <a asp-action="Add" asp-route-id="@item.GetId()"> Add Subordinate </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" asp-route-id="@null">@ViewBag.btfl</a>
