@@ -129,6 +129,11 @@ namespace EmployeeManager.Services
             return _employees;
         }
 
+        public Employee GetParent(Employee e)
+        {
+            return Get(e.GetId());
+        }
+
         public static EmployeeRepository AddSingleton()
         {
             return instance;

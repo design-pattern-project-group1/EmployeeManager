@@ -18,5 +18,7 @@ namespace EmployeeManager.Services
         List<List<Employee>> GetTierEmployees(int tier);
 
         void Delete(Employee e);
+
+        Employee GetParent(Employee e);
     }
 }
