@@ -15,4 +15,6 @@ The Reason we Chose Repository Pattern is because it was the best choice for Dat
 
 The Reason We Chose MVC Pattern is because MVC (Model-View-Controller) is not only the most widely used UI Layer Pattern out there but in the case of Asp.Net Core it is also the most encouraged and most structured pattern for a sound UI. In Asp.Net Core MVC Pattern has a bunch of built-in Framework Tools and Helper Classes but we utilized very few of those only for Server Hosting and Efficient Rendering Functionalities.
 
+Last but not least the Class Diagram Photo is in the root directory but a much more detailed and interactive diagram is also located in the same directory with a .dgml format (can be viewed using Visual Studio) containing Classes, Methods and All Relationships between them.
+
 Thank you!
