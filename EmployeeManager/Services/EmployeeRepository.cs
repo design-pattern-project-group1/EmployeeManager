@@ -10,6 +10,7 @@ namespace EmployeeManager.Services
     {
         private static EmployeeRepository instance = new EmployeeRepository();
         private List<Employee> _employees;
+        int controlSpan = 0;
 
         private EmployeeRepository()
         {
@@ -82,6 +83,7 @@ namespace EmployeeManager.Services
                 ManufacturingExec2
             };
         }
+        
         public Employee Add(Employee e)
         {
             e.SetTier(Get(e.GetParentId()).GetTier() + 1);

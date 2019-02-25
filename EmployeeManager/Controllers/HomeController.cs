@@ -85,7 +85,7 @@ namespace EmployeeManager.Controllers
                 
                 };
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < _employeeRepository.GetAll().Max( j => j.GetTier()); i++)
             {
                 all.Add(_employeeRepository.GetTierEmployees(i));
             }

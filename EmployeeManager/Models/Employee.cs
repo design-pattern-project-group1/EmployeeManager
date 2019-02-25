@@ -11,6 +11,7 @@ namespace EmployeeManager.Models
         private String _name;
         private String _position;
         private int _salary;
+        private int _controlSpan;
         private int? _parentId;
         private int _tier;
         private List<Employee> _subordinates;
@@ -29,6 +30,43 @@ namespace EmployeeManager.Models
         public void Add(Employee e)
         {
             _subordinates.Add(e);
+        }
+
+
+        private int TraverseTree(Employee e)
+
+        {
+            _controlSpan += e.GetSalary();
+
+            List<Employee> employees = e.GetSubordinates();
+
+            foreach (Employee employee in employees)
+            {
+
+                TraverseTree(employee);
+
+            }
+
+            return _controlSpan;
+        }
+
+        int TraverseTree()
+
+        {
+
+            return TraverseTree(this);
+
+        }
+
+        public void SetSpan(int controlSpan)
+        {
+            _controlSpan = controlSpan;
+        }
+
+        public int GetSpan()
+        {
+            SetSpan(0);
+            return TraverseTree();
         }
 
         public void SetTier(int tier) { _tier = tier; }
@@ -54,51 +92,6 @@ namespace EmployeeManager.Models
         public string GetPosition() { return _position; }
 
         public int GetSalary() { return _salary; }
-
-        //Returns Control Span for Employee Instance
-        public int GetControlSpan()
-        {
-            var controlSpan = GetSalary();
-
-                var subs = GetSubordinates();
-
-                foreach (var s in subs)
-                {
-                    controlSpan += s.GetSalary();
-
-                    foreach (var i in s.GetSubordinates())
-                    {
-                        controlSpan += i.GetSalary();
-
-                        foreach (var j in i.GetSubordinates())
-                        {
-                            controlSpan += j.GetSalary();
-
-                            foreach (var k in j.GetSubordinates())
-                            {
-                                controlSpan += k.GetSalary();
-
-                                foreach (var l in k.GetSubordinates())
-                                {
-                                    controlSpan += l.GetSalary();
-
-                                    foreach (var m in l.GetSubordinates())
-                                    {
-                                        controlSpan += l.GetSalary();
-
-                                        foreach (var n in m.GetSubordinates())
-                                        {
-                                            controlSpan += m.GetSalary();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                return controlSpan;
-        }
 
         override
         public String ToString()
